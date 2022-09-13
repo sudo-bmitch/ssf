@@ -46,9 +46,9 @@
 
 	
 
-<title>How to Contribute | FRSCA</title>
-<meta name="description" content="Contribute to the Factory for Repeatable Secure Creation of Artifacts.">
-<link rel="canonical" href="https://buildsec.github.io/frsca/docs/contributing/how-to-contribute/">
+<title>Using CUE | FRSCA</title>
+<meta name="description" content="Working with CUE in Factory for Repeatable Secure Creation of Artifacts.">
+<link rel="canonical" href="https://buildsec.github.io/frsca/docs/help/using-cue/">
 
 
 
@@ -103,14 +103,11 @@
           {
             "@type": "ListItem",
             "position":  3 ,
-            "name": "Contributing",
-            "item": "https://buildsec.github.io/frsca/docs/contributing/"
+            "name": "Help",
+            "item": "https://buildsec.github.io/frsca/docs/help/"
           },
         
       
-        
-        
-        
         
         
         
@@ -127,8 +124,8 @@
           {
             "@type": "ListItem",
             "position":  4 ,
-            "name": "How To Contribute",
-            "item": "https://buildsec.github.io/frsca/docs/contributing/how-to-contribute/"
+            "name": "Using Cue",
+            "item": "https://buildsec.github.io/frsca/docs/help/using-cue/"
           },
         
       
@@ -233,7 +230,7 @@
 							<h3>Contributing</h3>
 							<ul class="list-unstyled">
 							                           
-									<li><a class="docs-link active" href="https://buildsec.github.io/frsca/docs/contributing/how-to-contribute/">How to Contribute</a></li>
+									<li><a class="docs-link" href="https://buildsec.github.io/frsca/docs/contributing/how-to-contribute/">How to Contribute</a></li>
 							
 					</ul>
 					
@@ -245,7 +242,7 @@
 							                           
 									<li><a class="docs-link" href="https://buildsec.github.io/frsca/docs/help/faq/">FAQ</a></li>
 							                           
-									<li><a class="docs-link" href="https://buildsec.github.io/frsca/docs/help/using-cue/">Using CUE</a></li>
+									<li><a class="docs-link active" href="https://buildsec.github.io/frsca/docs/help/using-cue/">Using CUE</a></li>
 							
 					</ul>
 					
@@ -256,54 +253,98 @@
 
 	  
   
+  <nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+  	<div class="page-links">
+  			<h3>On this page</h3>
+  			<nav id="TableOfContents">
+  					<ul>
+  							
+  							<li><a href="https://buildsec.github.io/frsca/docs/help/using-cue/#cue-module-structure">CUE Module Structure</a></li>
+  							
+  							
+  							<li><a href="https://buildsec.github.io/frsca/docs/help/using-cue/#adding-or-modifying">Adding or Modifying</a></li>
+  							
+  							
+  							<li><a href="https://buildsec.github.io/frsca/docs/help/using-cue/#using-cue-tool">Using CUE Tool</a></li>
+  							
+  							
+  							<li><a href="https://buildsec.github.io/frsca/docs/help/using-cue/#references">References</a></li>
+  							
+  							
+  					</ul>
+  			</nav>
+  	</div>
+  </nav>
+  
 
       <main class="docs-content col-lg-11 col-xl-9">
-         <h1>How to Contribute</h1> 
-        
-        <p>The FRSCA project welcomes any kind of contributions, from code to documentation
-via fixing typos. Please feel free to raise an <a href="https://github.com/buildsec/frsca/issues/new/choose">issue</a> if you would like to work
-on something major to ensure efficient collaboration and avoid duplicate effort.</p>
-<p>The code lives in the
-<a href="https://github.com/buildsec/frsca">frsca repository</a>.</p>
-<h2 id="guidelines">Guidelines</h2>
-<ul>
-<li>Use the provided templates to file an <a href="https://github.com/buildsec/frsca/issues/new/choose">issue</a> or a <a href="https://github.com/buildsec/frsca/pulls">pull request</a>.</li>
-<li>Create a topic branch from where you want to base your work.</li>
-<li>Format the files properly. Please use the dedicated <code>Makefile</code> targets.</li>
-<li>If applicable, add some tests to validate your changes and ensure nothing else
-was accidentally broken.</li>
-<li>Commit messages must start with a capitalized and short summary (max. 50
-chars) written in the imperative, followed by an optional, more detailed
-explanatory text which is separated from the summary by an empty line.</li>
-<li>Commit messages should follow best practices, including explaining the context
-of the problem and how it was solved, including in caveats or follow up
-changes required. They should tell the story of the change and provide readers
-understanding of what led to it. Please refer to <a href="http://chris.beams.io/posts/git-commit">How to Write a Git Commit
-Message</a> for more details.</li>
-<li>If your <a href="https://github.com/buildsec/frsca/pulls">pull request</a> is a work in progress, create it as a <a href="https://github.blog/2019-02-14-introducing-draft-pull-requests/">draft pull
-request</a>.</li>
-<li>Any <a href="https://github.com/buildsec/frsca/pulls">pull request</a> inactive for 28 days will be automatically closed. If you
-need more time to work on it, ask maintainers, to add the appropriate label to
-it. Use the <code>@</code> mention in the comments.</li>
-<li>Unless explicitly asked, <a href="https://github.com/buildsec/frsca/pulls">pull request</a> which don't pass all the CI checks
-will not be reviewed. Use the <code>@</code> mention in the comments to ask maintainers
-to help you.</li>
-</ul>
-<h3 id="commit-example">Commit example</h3>
-<pre data-lang="COMMIT_EDITMSG" style="background-color:#2b303b;color:#c0c5ce;" class="language-COMMIT_EDITMSG "><code class="language-COMMIT_EDITMSG" data-lang="COMMIT_EDITMSG"><span>Enforce shell linting
+         <h1>Using CUE</h1> 
+        <p class="lead">Working with CUE in Factory for Repeatable Secure Creation of Artifacts.</p>
+        <h2 id="cue-module-structure">CUE Module Structure</h2>
+<p>The top level of Factory for Repeatable Secure Creation of Artifacts (FRSCA)
+is structured as a
+<a href="https://cuelang.org/docs/concepts/packages/">CUE module</a> and follows the
+<a href="https://cuelang.org/docs/concepts/packages/#file-organization">schema/policy/data</a>
+pattern for organizing the files.</p>
+<p>The
+<a href="https://cuelang.org/docs/concepts/packages/#the-cuemod-directory"><code>cue.mod</code></a>
+directory is predominantly for CUE package management. All of the files in
+<code>cue.mod/gen/...</code> are generated from the <code>cue get go ...</code> command importing go
+modules and converting them to CUE. These can then be imported and used to
+verify the structure of things such as <code>ConfigMap</code>. <code>frsca.cue</code> imports several of
+these and creates base structures based on these imported go structs.</p>
+<p>For the most part, CUE expects the evaluation to be done relative to the root of
+the CUE module. Evaluation can be narrowed by providing a path to a subdirectory
+(e.g. <code>cue eval ./examples/buildpacks</code>). CUE will then only evaluate things in
+that subdirectory (<code>./examples/buildpacks</code>) or its parent directories (<code>.</code> and
+<code>./examples</code>), but will not evaluate things in adjacent or sibling directories
+(e.g. <code>./resources/...</code> or <code>./examples/sample-pipeline</code>).</p>
+<h2 id="adding-or-modifying">Adding or Modifying</h2>
+<p>Typically new <code>.cue</code> files will be added in a subdirectory similar to what has
+been done in the <code>examples/...</code> directories. In the case of <code>examples</code> there is
+<code>examples.cue</code> which holds some definitions that are shared across all of the
+examples. Of particular note is a comprehension that creates a persistent volume
+claim (PVC) for each pipeline run. A reference to the PVC is added to the
+pipeline run definition by default.</p>
+<pre data-lang="txt" style="background-color:#2b303b;color:#c0c5ce;" class="language-txt "><code class="language-txt" data-lang="txt"><span>// generate a PVC for each pipelineRun
+</span><span>persistentVolumeClaim: {
+</span><span> for pr in pipelineRun {
+</span><span>  &quot;\(pr.metadata.generateName)source-ws-pvc&quot;: spec: {
+</span><span>   accessModes: [&quot;ReadWriteOnce&quot;]
+</span><span>   resources: requests: storage: &quot;500Mi&quot;
+</span><span>  }
+</span><span> }
+</span><span>}
 </span><span>
-</span><span>Uses `shellcheck` and `shfmt` to lint and format shell scripts throughout the
-</span><span>project. Dedicated `Makefile` targets were created to automate the tasks and
-</span><span>the GitHub workflow was updated accordingly.
-</span><span>
-</span><span style="color:#b48ead;">Fixes </span><span style="color:#d08770;">buildsec/frsca#64
+</span><span>pipelineRun: [Name=_]: spec: workspaces: [{
+</span><span> name: *&quot;\(Name)ws&quot; | string
+</span><span> persistentVolumeClaim: claimName: &quot;\(Name)source-ws-pvc&quot;
+</span><span>}, ...]
 </span></code></pre>
-<p>The following commit is a good example as:</p>
-<ol>
-<li>The fist line is a short description and starts with an imperative verb.</li>
-<li>The first paragraph describes why this commit may be useful.</li>
-<li>The last line points to an existing issue and will automatically close it.</li>
-</ol>
+<h2 id="using-cue-tool">Using CUE Tool</h2>
+<p>FRSCA uses the <code>cue cmd</code> support (see <code>cue cmd --help</code> and
+<a href="https://blog.patapon.info/cue-tool/">cue tooling layer</a> for more details) for
+selecting and exporting definitions. This can be seen in <code>frsca_tool.cue</code> which
+defines commands for exporting things that can be used in conjunction with
+<code>kubectl</code>. An example of its usage can be seen in
+<code>examples/buildpacks/buildpacks.sh</code>.</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">pushd</span><span> examples/buildpacks
+</span><span style="color:#bf616a;">cue</span><span> cmd</span><span style="color:#bf616a;"> -t </span><span>&quot;</span><span style="color:#a3be8c;">repository=</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">REPOSITORY</span><span style="color:#a3be8c;">}</span><span>&quot; apply | </span><span style="color:#bf616a;">kubectl</span><span> apply</span><span style="color:#bf616a;"> -f</span><span> -
+</span><span style="color:#bf616a;">cue</span><span> cmd</span><span style="color:#bf616a;"> -t </span><span>&quot;</span><span style="color:#a3be8c;">repository=</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">REPOSITORY</span><span style="color:#a3be8c;">}</span><span>&quot; create | </span><span style="color:#bf616a;">kubectl</span><span> create</span><span style="color:#bf616a;"> -f</span><span> -
+</span><span style="color:#bf616a;">popd
+</span></code></pre>
+<p>Here we are using the <code>cue apply ...</code> command to export definitions from
+<code>./examples/buildpacks</code> that can be used with <code>kubectl apply ...</code>. And similarly
+<code>cue create ...</code> exports definitions from <code>./examples/buildpacks</code> that can be
+used with <code>kubectl create ...</code>.</p>
+<p>The above example also shows the usage of a tag (<code>cue -t ...</code>) for passing
+values (<code>repository</code> in this case) into the CUE definitions.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://cuelang.org/docs/">https://cuelang.org/docs/</a></li>
+<li><a href="https://cuelang.org/docs/concepts/packages/">https://cuelang.org/docs/concepts/packages/</a></li>
+<li><a href="https://blog.patapon.info/cue-tool/">https://blog.patapon.info/cue-tool/</a></li>
+</ul>
 
         
         
@@ -326,23 +367,23 @@ to help you.</li>
         
         
           
-        
-      
-        
-        
-          
             
               
-              <a href="https:&#x2F;&#x2F;buildsec.github.io&#x2F;frsca&#x2F;docs&#x2F;getting-started&#x2F;architecture&#x2F;">
+              <a href="https:&#x2F;&#x2F;buildsec.github.io&#x2F;frsca&#x2F;docs&#x2F;contributing&#x2F;how-to-contribute&#x2F;">
                 <div class="card my-1">
                   <div class="card-body py-2">
-                    &larr; Architecture
+                    &larr; How to Contribute
                   </div>
                 </div>
               </a>
             
             
             
+          
+        
+      
+        
+        
           
         
       
@@ -369,19 +410,6 @@ to help you.</li>
     
       
       
-        
-          
-          
-          <a class="ms-auto" href="https:&#x2F;&#x2F;buildsec.github.io&#x2F;frsca&#x2F;docs&#x2F;help&#x2F;faq&#x2F;">
-            <div class="card my-1">
-              <div class="card-body py-2">
-                FAQ &rarr;
-              </div>
-            </div>
-          </a>
-          
-          
-          
         
       
     
